@@ -31,8 +31,6 @@ public class Item {
         return this.item_price_in_cents;
     }
     
-    // FIX THIS
-    
     public String get_item_price_for_display() {
         
         String cents_string = new Integer(this.item_price_in_cents).toString();
@@ -76,7 +74,7 @@ public class Item {
     
     public String toString() {
         
-        String display = "[" + this.get_item_quantity() + "] " + this.get_item_name() + " (" + this.get_item_price_for_display() + ")";
+        String display = "(" + this.get_item_quantity() + ") " + this.get_item_name() + " " + this.get_item_price_for_display();
         
         return display;
     }
