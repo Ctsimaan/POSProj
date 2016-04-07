@@ -46,7 +46,7 @@ public class Driver {
         
         JPanel employee_panel = new JPanel();
         employee_panel.setLayout(new BoxLayout(employee_panel, BoxLayout.X_AXIS));
-        employee_panel.setBorder(BorderFactory.createEmptyBorder(15, 15, 0, 15));
+        employee_panel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
         
         JButton signout_button = new JButton("SIGN OUT");
         
