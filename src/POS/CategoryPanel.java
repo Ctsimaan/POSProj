@@ -172,8 +172,8 @@ public class CategoryPanel extends JPanel {
         
         // Set the text and color for the labels in the summary_panel_five.
         
-        name_label_five.setText("<html><font color = #ffffff><b>S </b></font>" + category.get_item_list()[4].get_item_name());
-        price_label_five.setText("<html><font color = #ffffff><b>S </b></font>" + category.get_item_list()[4].get_item_price_for_display());
+        name_label_five.setText("<html><font color = #ffffff><b>N </b></font>" + category.get_item_list()[4].get_item_name());
+        price_label_five.setText("<html><font color = #ffffff><b>P </b></font>" + category.get_item_list()[4].get_item_price_for_display());
         quantity_label_five.setText("<html><font color = #ffffff><b>S </b></font>" + category.get_item_list()[4].get_item_quantity());
         
         // Add the labels to the summary_five_panel.
