@@ -11,11 +11,17 @@ public class Category {
     private Item[] item_array;
     
     /**
-     * Constructor that takes no arguments, creates a "blank" Category.
+     * Constructor that takes no arguments and creates a "blank" Category with a
+     * category_name "EMPTY CATEGORY" and an array of five "blank" Items.
      */
     public Category() {
-        this.category_name = "";
-        this.item_array = null;
+        this.category_name = "EMPTY CATEGORY";
+        this.item_array = new Item[5];
+        this.item_array[0] = new Item();
+        this.item_array[1] = new Item();
+        this.item_array[2] = new Item();
+        this.item_array[3] = new Item();
+        this.item_array[4] = new Item();
     }
     
     /**
@@ -43,7 +49,7 @@ public class Category {
      * 
      * @return 
      */
-    public Item[] get_item_list() {
+    public Item[] get_item_array() {
         return this.item_array;
     }
     

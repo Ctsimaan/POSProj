@@ -77,7 +77,7 @@ public class CategoryPanel extends JPanel {
         
         // Set the text and the color of the category_label.
         
-        category_label.setText(category.get_category_name());
+        category_label.setText("<html><b>" + category.get_category_name() + "</b>");
         category_label.setForeground(Color.WHITE);
         
         // Add the category_label to the title_panel.
@@ -100,9 +100,9 @@ public class CategoryPanel extends JPanel {
         
         // Set the text and color for the labels in the summary_panel_one.
         
-        name_label_one.setText("<html><font color = #ffffff><b>N </b></font>" + category.get_item_list()[0].get_item_name());
-        price_label_one.setText("<html><font color = #ffffff><b>P </b></font>" + category.get_item_list()[0].get_item_price_for_display());
-        quantity_label_one.setText("<html><font color = #ffffff><b>S </b></font>" + category.get_item_list()[0].get_item_quantity());
+        name_label_one.setText("<html><font color = #ffffff><b>N </b></font>" + category.get_item_array()[0].get_item_name());
+        price_label_one.setText("<html><font color = #ffffff><b>P </b></font>" + category.get_item_array()[0].get_item_price_for_display());
+        quantity_label_one.setText("<html><font color = #ffffff><b>S </b></font>" + category.get_item_array()[0].get_item_quantity());
         
         // Add the labels to the summary_panel_one.
         
@@ -118,9 +118,9 @@ public class CategoryPanel extends JPanel {
         
         // Set the text and color for the labels in the summary_panel_two.
         
-        name_label_two.setText("<html><font color = #ffffff><b>N </b></font>" + category.get_item_list()[1].get_item_name());
-        price_label_two.setText("<html><font color = #ffffff><b>P </b></font>" + category.get_item_list()[1].get_item_price_for_display());
-        quantity_label_two.setText("<html><font color = #ffffff><b>S </b></font>" + category.get_item_list()[1].get_item_quantity());
+        name_label_two.setText("<html><font color = #ffffff><b>N </b></font>" + category.get_item_array()[1].get_item_name());
+        price_label_two.setText("<html><font color = #ffffff><b>P </b></font>" + category.get_item_array()[1].get_item_price_for_display());
+        quantity_label_two.setText("<html><font color = #ffffff><b>S </b></font>" + category.get_item_array()[1].get_item_quantity());
 
         // Add the labels to the summary_two_panel.
         
@@ -136,9 +136,9 @@ public class CategoryPanel extends JPanel {
         
         // Set the text and color for the labels in the summary_panel_three.
         
-        name_label_three.setText("<html><font color = #ffffff><b>N </b></font>" + category.get_item_list()[2].get_item_name());
-        price_label_three.setText("<html><font color = #ffffff><b>P </b></font>" + category.get_item_list()[2].get_item_price_for_display());
-        quantity_label_three.setText("<html><font color = #ffffff><b>S </b></font>" + category.get_item_list()[2].get_item_quantity());
+        name_label_three.setText("<html><font color = #ffffff><b>N </b></font>" + category.get_item_array()[2].get_item_name());
+        price_label_three.setText("<html><font color = #ffffff><b>P </b></font>" + category.get_item_array()[2].get_item_price_for_display());
+        quantity_label_three.setText("<html><font color = #ffffff><b>S </b></font>" + category.get_item_array()[2].get_item_quantity());
 
         // Add the labels to the summary_three_panel.
         
@@ -154,9 +154,9 @@ public class CategoryPanel extends JPanel {
         
         // Set the text and color for the labels in the summary_panel_four.
         
-        name_label_four.setText("<html><font color = #ffffff><b>N </b></font>" + category.get_item_list()[3].get_item_name());
-        price_label_four.setText("<html><font color = #ffffff><b>P </b></font>" + category.get_item_list()[3].get_item_price_for_display());
-        quantity_label_four.setText("<html><font color = #ffffff><b>S </b></font>" + category.get_item_list()[3].get_item_quantity());
+        name_label_four.setText("<html><font color = #ffffff><b>N </b></font>" + category.get_item_array()[3].get_item_name());
+        price_label_four.setText("<html><font color = #ffffff><b>P </b></font>" + category.get_item_array()[3].get_item_price_for_display());
+        quantity_label_four.setText("<html><font color = #ffffff><b>S </b></font>" + category.get_item_array()[3].get_item_quantity());
 
         // Add the labels to the summary_four_panel.
         
@@ -172,9 +172,9 @@ public class CategoryPanel extends JPanel {
         
         // Set the text and color for the labels in the summary_panel_five.
         
-        name_label_five.setText("<html><font color = #ffffff><b>N </b></font>" + category.get_item_list()[4].get_item_name());
-        price_label_five.setText("<html><font color = #ffffff><b>P </b></font>" + category.get_item_list()[4].get_item_price_for_display());
-        quantity_label_five.setText("<html><font color = #ffffff><b>S </b></font>" + category.get_item_list()[4].get_item_quantity());
+        name_label_five.setText("<html><font color = #ffffff><b>N </b></font>" + category.get_item_array()[4].get_item_name());
+        price_label_five.setText("<html><font color = #ffffff><b>P </b></font>" + category.get_item_array()[4].get_item_price_for_display());
+        quantity_label_five.setText("<html><font color = #ffffff><b>S </b></font>" + category.get_item_array()[4].get_item_quantity());
         
         // Add the labels to the summary_five_panel.
         
