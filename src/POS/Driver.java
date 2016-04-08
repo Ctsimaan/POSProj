@@ -3,10 +3,6 @@
 // Andrew Holman
 // Driver.java
 
-/*
- * I am adding this comment to see if I can push it to the master branch.
- */
-
 package POS;
 
 import java.awt.*;
@@ -17,13 +13,15 @@ public class Driver {
         
     public static void main(String[] args) throws IOException {
         
-        Inventory inventory = initialize_inventory();
+        Inventory inventory = new Inventory();
+        
+        inventory.initialize_from_file();
                         
         Employee employee = new Employee("Timothy Dement", "CASHIER", "username", "password");
         
         create_and_display_ui(employee, inventory);
 
-        inventory.close();
+        inventory.save_to_file();
 
     }
     
@@ -71,6 +69,7 @@ public class Driver {
         
     }
     
+    /*
     public static Inventory initialize_inventory() throws IOException {
         
        Inventory inv = new Inventory();
@@ -180,4 +179,5 @@ public class Driver {
         return inventory;
         
         }
+*/
     }

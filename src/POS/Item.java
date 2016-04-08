@@ -12,7 +12,7 @@ public class Item {
     private int item_quantity;
     
     public Item() {
-        this.item_name = "";
+        this.item_name = "EMPTY ITEM";
         this.item_price_in_cents = 0;
         this.item_quantity = 0;
     }
@@ -35,25 +35,26 @@ public class Item {
         
         String cents_string = new Integer(this.item_price_in_cents).toString();
         
-        String display;
+        String display_string;
         
         if (this.item_price_in_cents < 10) {
             
-            display = "$0.0" + cents_string;
+            display_string = "$0.0" + cents_string;
             
         } else if (this.item_price_in_cents < 100) {
             
-            display = "$0." + cents_string;
+            display_string = "$0." + cents_string;
             
         } else {
         
-            int length = cents_string.length();
-        
-            display = "$" + cents_string.substring(0, length - 2) + "." + cents_string.substring(length - 2, length);
+            display_string = "$"
+                    + cents_string.substring(0, cents_string.length() - 2)
+                    + "."
+                    + cents_string.substring(cents_string.length() - 2);
             
         }
         
-        return display;
+        return display_string;
     }
     
     public int get_item_quantity() {
@@ -70,12 +71,5 @@ public class Item {
     
     public void set_item_quantity(int item_quantity) {
         this.item_quantity = item_quantity;
-    }
-    
-    public String toString() {
-        
-        String display = "(" + this.get_item_quantity() + ") " + this.get_item_name() + " " + this.get_item_price_for_display();
-        
-        return display;
     }
 }
