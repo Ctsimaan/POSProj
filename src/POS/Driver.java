@@ -25,6 +25,10 @@ public class Driver {
 
     }
     
+    // Eventually this code will be moved to a separate method that specifically
+    // handles the UI windows for the transactions (the "main" window).
+    // We'll want to start with the login window when the program opens.
+    
     public static void create_and_display_ui(Employee employee, Inventory inventory) {
         
         JFrame frame = new JFrame();

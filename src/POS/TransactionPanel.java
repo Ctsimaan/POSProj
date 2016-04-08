@@ -7,6 +7,7 @@ package POS;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 public class TransactionPanel {
     
@@ -19,6 +20,10 @@ public class TransactionPanel {
     private JPanel button_panel = new JPanel();
     
     private JButton transaction_button = new JButton();
+    //private TransactionButtonHandler transaction_button_handler;
+    
+    private JButton clear_button = new JButton();
+    private ClearButtonHandler clear_button_handler;
     
     private Inventory inventory;
     
@@ -36,7 +41,11 @@ public class TransactionPanel {
         item_panel.add(new CategoryPanel(inventory.get_category_array()[4]).get_main_panel());
         
         transaction_button.setText("COMPLETE " + this.transaction_name);
+        clear_button.setText("CLEAR " +this.transaction_name);
+        clear_button.addActionListener(clear_button_handler);
+        
         button_panel.setBackground(DARK_SLATE_BLUE);
+        button_panel.add(clear_button);
         button_panel.add(transaction_button);
         
         main_panel.setLayout(new BoxLayout(main_panel, BoxLayout.Y_AXIS));
@@ -50,5 +59,16 @@ public class TransactionPanel {
     
     public String get_transaction_name() {
         return this.transaction_name;
+    }
+    
+    public class ClearButtonHandler implements ActionListener {
+        
+        @Override
+        
+        public void actionPerformed(ActionEvent e) {
+            
+            
+            
+        }
     }
 }

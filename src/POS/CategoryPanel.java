@@ -54,11 +54,11 @@ public class CategoryPanel extends JPanel {
     // WE CAN ADJUST THE VALUES OF THESE SPINNERS SO THAT THE "MAX" VALUE THEY
     // CAN REACH IS LIMITED TO THE NUMBER OF AN ITEM WE HAVE IN STOCK.
     
-    private JSpinner spinner_one = new JSpinner(new SpinnerNumberModel(0, 0, 10, 1));
-    private JSpinner spinner_two = new JSpinner(new SpinnerNumberModel(0, 0, 10, 1));
-    private JSpinner spinner_three = new JSpinner(new SpinnerNumberModel(0, 0, 10, 1));
-    private JSpinner spinner_four = new JSpinner(new SpinnerNumberModel(0, 0, 10, 1));
-    private JSpinner spinner_five = new JSpinner(new SpinnerNumberModel(0, 0, 10, 1));
+    private JSpinner spinner_one;
+    private JSpinner spinner_two;
+    private JSpinner spinner_three;
+    private JSpinner spinner_four;
+    private JSpinner spinner_five;
     
     /**
      * Constructor that takes one argument and sets category.
@@ -68,6 +68,13 @@ public class CategoryPanel extends JPanel {
     public CategoryPanel(Category category) {
         
         this.category = category;
+        
+        spinner_one = new JSpinner(new SpinnerNumberModel(0, 0, this.category.get_item_array()[0].get_item_quantity(), 1));
+        spinner_two = new JSpinner(new SpinnerNumberModel(0, 0, this.category.get_item_array()[1].get_item_quantity(), 1));
+        spinner_three = new JSpinner(new SpinnerNumberModel(0, 0, this.category.get_item_array()[2].get_item_quantity(), 1));
+        spinner_four = new JSpinner(new SpinnerNumberModel(0, 0, this.category.get_item_array()[3].get_item_quantity(), 1));
+        spinner_five = new JSpinner(new SpinnerNumberModel(0, 0, this.category.get_item_array()[4].get_item_quantity(), 1));
+
         
         // Set border and color of the title_panel.
         // The title_panel simply displays the title of the category.
@@ -241,5 +248,9 @@ public class CategoryPanel extends JPanel {
                                 (int) this.spinner_five.getValue()};
         
         return spinner_values;
+    }
+    
+    public JPanel get_items_panel() {
+        return this.items_panel;
     }
 }
