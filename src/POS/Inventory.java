@@ -97,17 +97,20 @@ public class Inventory{
     }
     
     // NEED TO IMPLEMENT THIS -- should it take more than one Item?
-    public void sell_item(Item item) {
+    public void sell_items(Item[][] item) {
+        
+        // IDEA — take a 5x5 array representing what should be sold, and update the inventory accordingly.
+        // Make sure to refresh the UI and save this new info to the file.
         
     }
     
     // NEED TO IMPLEMENT THIS -- should it take more than one Item?
-    public void return_item(Item item) {
+    public void return_items(Item[][] item) {
         
     }
     
     // NEED TO IMPLEMENT THIS -- should it take more than one Item?
-    public void order_item(Item item) {
+    public void order_items(Item[][] item) {
         
     }
 }

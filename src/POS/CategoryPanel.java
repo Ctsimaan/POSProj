@@ -49,11 +49,6 @@ public class CategoryPanel extends JPanel {
     private JLabel quantity_label_four = new JLabel();
     private JLabel quantity_label_five = new JLabel();
     
-    // NOTE:
-    //
-    // WE CAN ADJUST THE VALUES OF THESE SPINNERS SO THAT THE "MAX" VALUE THEY
-    // CAN REACH IS LIMITED TO THE NUMBER OF AN ITEM WE HAVE IN STOCK.
-    
     private JSpinner spinner_one;
     private JSpinner spinner_two;
     private JSpinner spinner_three;
@@ -250,7 +245,23 @@ public class CategoryPanel extends JPanel {
         return spinner_values;
     }
     
-    public JPanel get_items_panel() {
-        return this.items_panel;
+    public JSpinner get_spinner_one() {
+        return this.spinner_one;
+    }
+    
+    public JSpinner get_spinner_two() {
+        return this.spinner_two;
+    }
+    
+    public JSpinner get_spinner_three() {
+        return this.spinner_three;
+    }
+    
+    public JSpinner get_spinner_four() {
+        return this.spinner_four;
+    }
+    
+    public JSpinner get_spinner_five() {
+        return this.spinner_five;
     }
 }
