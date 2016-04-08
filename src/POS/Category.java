@@ -11,7 +11,8 @@ public class Category {
     private Item[] item_array;
     
     /**
-     * Constructor that takes no arguments, creates a "blank" Category.
+     * Constructor that takes no arguments and creates a "blank" Category with a
+     * category_name "EMPTY CATEGORY" and an array of five "blank" Items.
      */
     public Category() {
         this.category_name = "EMPTY CATEGORY";
