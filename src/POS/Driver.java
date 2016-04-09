@@ -25,7 +25,12 @@ public class Driver {
 
     }
     
-    // Eventually this code will be moved to a separate method that specifically
+    // DO WE NEED TO HAVE A "COST" AS WELL AS A "PRICE"?  One being the amount
+    // spent by a customer buying from us, the other being the amount spent
+    // by us when ordering items?
+    // Item would need another field, and the rest will need to be updated.
+    
+    // Eventually this code below will be moved to a separate method that specifically
     // handles the UI windows for the transactions (the "main" window).
     // We'll want to start with the login window when the program opens.
     
