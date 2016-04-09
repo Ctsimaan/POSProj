@@ -12,6 +12,7 @@ import java.awt.event.*;
 public class TransactionPanel {
     
     private final Color DARK_SLATE_BLUE = new Color(72, 61, 139);
+    private final Color LIGHT_STEEL_BLUE = new Color(176, 196, 222);
     
     private String transaction_name;
     
@@ -19,8 +20,8 @@ public class TransactionPanel {
     private JPanel item_panel = new JPanel();
     private JPanel button_panel = new JPanel();
     
-    private JButton transaction_button = new JButton();
-    //private TransactionButtonHandler transaction_button_handler;
+    private JButton review_button = new JButton();
+    private ReviewButtonHandler review_button_handler = new ReviewButtonHandler();
     
     private JButton clear_button = new JButton();
     private ClearButtonHandler clear_button_handler = new ClearButtonHandler();
@@ -49,13 +50,15 @@ public class TransactionPanel {
         item_panel.add(category_panel_array[3].get_main_panel());
         item_panel.add(category_panel_array[4].get_main_panel());
         
-        transaction_button.setText("COMPLETE " + this.transaction_name);
+        review_button.setText("REVIEW " + this.transaction_name);
+        review_button.addActionListener(review_button_handler);
+        
         clear_button.setText("CLEAR " +this.transaction_name);
         clear_button.addActionListener(clear_button_handler);
         
         button_panel.setBackground(DARK_SLATE_BLUE);
         button_panel.add(clear_button);
-        button_panel.add(transaction_button);
+        button_panel.add(review_button);
         
         main_panel.setLayout(new BoxLayout(main_panel, BoxLayout.Y_AXIS));
         main_panel.add(item_panel);
@@ -74,6 +77,18 @@ public class TransactionPanel {
         return this.category_panel_array;
     }
     
+    public int[][] get_all_spinner_values() {
+        
+        int[][] all_spinner_values = new int[5][5];
+        
+        for (int i = 0; i < 5; i++) {
+            
+            all_spinner_values[i] = this.category_panel_array[i].get_spinner_values();
+        }
+        
+        return all_spinner_values;
+    }
+    
     public class ClearButtonHandler implements ActionListener {
         
         @Override
@@ -89,6 +104,104 @@ public class TransactionPanel {
                 category_panel_array[category_index].get_spinner_five().setValue(0);
                 
             }
+        }
+    }
+    
+    public class ReviewButtonHandler implements ActionListener {
+        
+        @Override
+        
+        public void actionPerformed(ActionEvent e) {
+            
+            JDialog confirmation_dialog = new JDialog();
+            
+            JPanel main_panel = new JPanel();
+            
+            main_panel.setLayout(new BoxLayout(main_panel, BoxLayout.Y_AXIS));
+            
+            JPanel total_panel = new JPanel();
+            
+            JLabel total_label = new JLabel("<html><b>TOTAL " + transaction_name + " (total goes here)</b>");
+            
+            total_panel.setBackground(LIGHT_STEEL_BLUE);
+            total_panel.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+            
+            total_panel.add(total_label);
+            
+            JPanel title_panel = new JPanel();
+            title_panel.setBackground(DARK_SLATE_BLUE);
+            
+            JPanel items_panel = new JPanel();
+            
+            JPanel buttons_panel = new JPanel();
+            buttons_panel.setBackground(DARK_SLATE_BLUE);
+            buttons_panel.setLayout(new BoxLayout(buttons_panel, BoxLayout.X_AXIS));
+            buttons_panel.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+            
+            int[][] all_spinner_values = get_all_spinner_values();
+            
+            int number_of_transaction_items = 0;
+            
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 5; j++) {
+                    if (all_spinner_values[i][j] != 0) {
+                        number_of_transaction_items++;
+                    }
+                }
+            }
+            
+            items_panel.setLayout(new GridLayout(number_of_transaction_items, 2, 10, 10));
+            items_panel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+            
+            JButton cancel_button = new JButton("CANCEL " + transaction_name);
+            JButton confirm_button = new JButton("CONFIRM " + transaction_name);
+            
+            buttons_panel.add(cancel_button);
+            buttons_panel.add(confirm_button);
+            
+            JLabel transaction_label = new JLabel("<html><b>" + transaction_name + " ITEMS</b>");
+            transaction_label.setForeground(Color.WHITE);
+            transaction_label.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+            
+            title_panel.add(transaction_label);
+            
+            for (int category_index = 0; category_index < 5; category_index++) {
+                
+                for (int item_index = 0; item_index < 5; item_index ++) {
+                    
+                    if (all_spinner_values[category_index][item_index] != 0) {
+                        
+                        JLabel quantity_and_name_label = new JLabel("("
+                                + all_spinner_values[category_index][item_index]
+                                + ") "
+                                + inventory.get_category_array()[category_index].get_item_array()[item_index].get_item_name());
+                        
+                        JLabel price_label = new JLabel(inventory.get_category_array()[category_index].get_item_array()[item_index].get_item_price_for_display()
+                                + " (each)");
+                        
+                        price_label.setHorizontalAlignment(JLabel.RIGHT);
+                        
+                        items_panel.add(quantity_and_name_label);
+                        items_panel.add(price_label);
+                        
+                    }  
+                }
+            }
+            
+            main_panel.add(title_panel);
+            main_panel.add(items_panel);
+            main_panel.add(total_panel);
+            main_panel.add(buttons_panel);
+            
+            confirmation_dialog.getContentPane().add(main_panel);
+            
+            confirmation_dialog.pack();           
+            confirmation_dialog.setLocationRelativeTo(null);
+            confirmation_dialog.setResizable(false);
+            confirmation_dialog.setModal(true);
+            confirmation_dialog.setVisible(true);
+            confirmation_dialog.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            
         }
     }
 }
